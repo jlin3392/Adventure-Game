@@ -1,17 +1,16 @@
 package Rooms;
-
 import Person.Player;
 
-public class HardRoom extends Room {
+public class KeyRoom extends Room {
 
-    public HardRoom (int x, int y) {
+    public KeyRoom (int x, int y) {
         super (x, y);
     }
 
     @Override
     public void enterRoom (Player x)
     {
-        System.out.println("You enter a spacious suite.");
+        System.out.println("You enter a luxury suite.");
         player1 = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
@@ -24,4 +23,5 @@ public class HardRoom extends Room {
         return ("h");
 
     }
+
 }

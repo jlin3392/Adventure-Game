@@ -12,7 +12,7 @@ public class Runner {
 
     public static void main(String[] args)
     {
-        Room[][] building = new Room[5][5];
+        Board map = new Board;
 
         //Fill the building with normal rooms
         for (int x = 0; x<building.length; x++)
@@ -117,7 +117,6 @@ public class Runner {
     {
         gameOn = false;
     }
-
 
 
 }

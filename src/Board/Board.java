@@ -10,11 +10,11 @@ public class Board {
     }
 
     public void print() {
-        String row = "";
+        String row = " ";
         for (int i = 0; i < map.length; i++) {
-            row = "";
+            row = " ";
             for (int j = 0; j < map[i].length; j++) {
-                row += map[i][j].toString();
+                row += map[i][j].toString() + "\n";
             }
             System.out.println(row);
         }

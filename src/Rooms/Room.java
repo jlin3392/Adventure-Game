@@ -1,13 +1,23 @@
 package Rooms;
+import Person.Player;
 
 public class Room {
 
-    private String[] places;
+    Player player1;
+    int xLoc, yLoc;
 
-    public Room (String[] places) {
-        this.places = places;
+
+    public Room (int x, int y) {
+        xLoc = x;
+        yLoc = y;
     }
 
-    public String toString() {
+    public void enterRoom(Player x)
+    {
+        System.out.println("You enter a plain suite.");
+        player1 = x;
+        x.setxLoc(this.xLoc);
+        x.setyLoc(this.yLoc);
     }
+
 }
