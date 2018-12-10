@@ -1,4 +1,6 @@
 package Rooms;
+
+import Game.Runner;
 import Person.Player;
 
 public class Room {
@@ -18,6 +20,10 @@ public class Room {
         player1 = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
+    }
+
+    public void leaveRoom(Player x) {
+        player1 = null;
     }
 
 }

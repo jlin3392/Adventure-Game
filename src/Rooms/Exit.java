@@ -1,18 +1,17 @@
 package Rooms;
 
-import Game.Runner;
 import Person.Player;
 
-public class KeyRoom extends Room {
+public class Exit extends Room {
 
-    public KeyRoom (int x, int y) {
-        super (x, y);
+    public Exit (int x, int y) {
+        super(x, y);
     }
 
     @Override
     public void enterRoom (Player x)
     {
-        System.out.println("You enter a luxury suite.");
+        System.out.println("You have reached the exit.");
         player1 = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
@@ -25,5 +24,4 @@ public class KeyRoom extends Room {
         return ("h");
 
     }
-
 }

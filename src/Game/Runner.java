@@ -2,6 +2,7 @@ package Game;
 
 import Person.Player;
 import Rooms.Room;
+import Board.Board;
 
 import java.util.Scanner;
 
@@ -12,10 +13,10 @@ public class Runner {
 
     public static void main(String[] args)
     {
-        Board map = new Board;
+        Board building = new Board();
 
         //Fill the building with normal rooms
-        for (int x = 0; x<building.length; x++)
+        for (int x = 0; x < building.length; x++)
         {
             for (int y = 0; y < building[x].length; y++)
             {
@@ -26,7 +27,7 @@ public class Runner {
         //Create a random winning room.
         int x = (int)(Math.random()*building.length);
         int y = (int)(Math.random()*building.length);
-        building[x][y] = new WinningRoom(x, y);
+        building[x][y] = new KeyRoom(x, y);
 
         //Setup player 1 and the input scanner
         Player player1 = new Player("FirstName", "FamilyName", 0,0);

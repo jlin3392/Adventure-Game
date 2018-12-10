@@ -1,11 +1,13 @@
 package Board;
+
+import Game.Runner;
 import Rooms.Room;
 
 public class Board {
 
     private Room[][] map;
 
-    public Board(Room[][] map) {
+    public Board() {
         this.map = map;
     }
 
