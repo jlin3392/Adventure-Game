@@ -1,6 +1,7 @@
 package Game;
 
 import Person.Player;
+import Rooms.Exit;
 import Rooms.KeyRoom;
 import Rooms.Room;
 import Board.Board;
