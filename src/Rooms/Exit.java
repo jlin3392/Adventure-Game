@@ -11,7 +11,9 @@ public class Exit extends Room {
     @Override
     public void enterRoom (Player x)
     {
-        System.out.println("You have reached the exit.");
+        //if player has key, print "You managed to find your way out."
+        //else print "The door is locked. You can't escape just yet!"
+        System.out.println("You reached what appears to be the exit.");
         player1 = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
@@ -20,8 +22,11 @@ public class Exit extends Room {
 
     @Override
     public String toString() {
-
-        return ("h");
+        if (player1!=null) {
+            return("[P]");
+        } else {
+            return("[E]");
+        }
 
     }
 }

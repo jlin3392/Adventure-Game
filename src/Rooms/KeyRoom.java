@@ -12,6 +12,15 @@ public class KeyRoom extends Room {
     @Override
     public void enterRoom (Player x)
     {
+        System.out.println("                         ____\n" +
+                "                        /    \\\n" +
+                "                       /______\\\n" +
+                "                          ||\n" +
+                "           /~~~~~~~~\\     ||    /~~~~~~~~~~~~~~~~\\\n" +
+                "          /~ () ()  ~\\    ||   /~ ()  ()  () ()  ~\\\n" +
+                "         (_)========(_)   ||  (_)==== ===========(_)\n" +
+                "          I|_________|I  _||_  |___________________|\n" +
+                ".////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
         System.out.println("You enter a luxury suite.");
         player1 = x;
         x.setxLoc(this.xLoc);
@@ -22,8 +31,11 @@ public class KeyRoom extends Room {
     @Override
     public String toString() {
 
-        return ("h");
-
+        if (player1!=null) {
+            return("[P]");
+        } else {
+            return("[R]");
+        }
     }
 
 }
