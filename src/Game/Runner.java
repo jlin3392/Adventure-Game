@@ -56,18 +56,21 @@ public class Runner {
         while(gameOn)
         {
             map.print();
-            System.out.println("Where would you like to move? (Choose N, S, E, W)");
-            String move = in.nextLine();
-            if(validMove(move, player1, building))
-            {
-                System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
+            System.out.println("What would you like to do? Type 'help' for more information.");
+            String statement = in.nextLine();
 
-            }
-            else {
+            if (statement.toLowerCase().equals("help") ) {
+                System.out.println("In each room, you can move, look around, and get items. \n" +
+                                   "You can move by choosing a direction (N, S, E, W). \n" +
+                                   "You can look at your surroundings by typing 'look'. \n" +
+                                   "You can get items by typing 'get' and the name of the item.");
+            } else if (validMove(statement, player1, building)) {
+                System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
+            } else if (statement.toLowerCase().equals("look")) {
+                System.out.println("Add method for look in Room class");
+            } else {
                 System.out.println("Please choose a valid move.");
             }
-
-
         }
         in.close();
     }
@@ -135,6 +138,7 @@ public class Runner {
         }
         return true;
     }
+
     public static void gameOff()
     {
         gameOn = false;

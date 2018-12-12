@@ -1,5 +1,7 @@
 package Person;
 
+import Items.Consumable;
+
 /**
  * Person represents the player as they move through the game.
  */
@@ -8,6 +10,8 @@ public class Player {
     String familyName;
     int xLoc, yLoc;
 
+    int healthPoints = 10;
+    int strength = 10;
 
     public int getxLoc() {
         return xLoc;
@@ -33,5 +37,16 @@ public class Player {
         this.yLoc = yLoc;
     }
 
+    public void restoreHealth(int amount) {
+        healthPoints = healthPoints + amount;
+    }
+
+    public void loseHealth(int amount) {
+        healthPoints = healthPoints - amount;
+    }
+
+    public void gainStrength(int amount) {
+        strength = strength + amount;
+    }
 
 }
