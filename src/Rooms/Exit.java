@@ -9,7 +9,7 @@ public class Exit extends Room implements lockedRoom {
     }
 
     public void checkKey() {
-        //if player1's inventory containes key, end game
+        //if player1's inventory contains key, end game
         //else print "The door is locked. You can't escape just yet!"
 
 
@@ -18,9 +18,7 @@ public class Exit extends Room implements lockedRoom {
     @Override
     public void enterRoom (Player player1)
     {
-        //if player has key, print "You managed to find your way out."
-        //else print "The door is locked. You can't escape just yet!"
-        System.out.println("You reached what appears to be the exit.");
+        System.out.println("You reached what appears to be the exit. A heavy padlock is on the door.");
         player1.setxLoc(this.xLoc);
         player1.setyLoc(this.yLoc);
 
