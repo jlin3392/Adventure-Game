@@ -1,6 +1,8 @@
 package Rooms;
 
 import Game.Runner;
+import Items.Key;
+import Items.Item;
 import Person.Player;
 
 public class KeyRoom extends Room {

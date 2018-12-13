@@ -36,7 +36,7 @@ public class Runner {
                 "                               .__|]_[]_'-...... \n" +
                 "                                \\ o o o '=-=-=-!\n" +
                 "\"'\"''\"\"'\"\"\"''''\"'\"''\"\"'''~~~~~~~~\\_____________|~~~~MC~~~~");
-        System.out.println("Welcome to the SS Anne, a luxury cruise famed for its \n" +
+        System.out.println("Welcome to the SS Anne, an old cruise famed for its \n" +
                            "labyrinthine rooms. You managed to find your way to   \n" +
                            "last floor, but where could the exit possibly be?     \n" +
                            "\n");
@@ -45,6 +45,7 @@ public class Runner {
         int x = (int)(Math.random()*building.length);
         int y = (int)(Math.random()*building.length);
         building[x][y] = new KeyRoom(x, y);
+
 
         Board map = new Board(building);
 
@@ -63,11 +64,11 @@ public class Runner {
                 System.out.println("In each room, you can move, look around, and get items. \n" +
                                    "You can move by choosing a direction (N, S, E, W). \n" +
                                    "You can look at your surroundings by typing 'look'. \n" +
-                                   "You can get items by typing 'get' and the name of the item.");
+                                   "You can use items by typing 'use' and the name of the item.");
             } else if (validMove(statement, player1, building)) {
                 System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
             } else if (statement.toLowerCase().equals("look")) {
-                System.out.println("Add method for look in Room class");
+                //Room(player1.getxLoc(),player1.getyLoc().lookAround());
             } else {
                 System.out.println("Please choose a valid move.");
             }
@@ -133,16 +134,14 @@ public class Runner {
                     return false;
                 }
             default:
-                break;
+                return false;
 
         }
-        return true;
     }
 
     public static void gameOff()
     {
         gameOn = false;
     }
-
 
 }

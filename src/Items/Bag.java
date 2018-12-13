@@ -2,14 +2,22 @@ package Items;
 
 public class Bag {
 
-    private String[] inventory = new String[10];
+    private Item[] inventory = new Item[10];
     String totalInventory;
+
+    public void addToBag(Item item) {
+        for (int i = 0; i <= 10; i++) {
+            if (inventory[i] != null) {
+                inventory[i] = item;
+            }
+        }
+    }
 
     public void checkBag() {
 
         for (int i = 0; i <= 10; i++) {
             if (inventory[i] != null) {
-                totalInventory = totalInventory + inventory[i] + " ";
+                totalInventory = totalInventory + inventory[i].toString() + " ";
             }
         }
 

@@ -9,7 +9,7 @@ public class Exit extends Room implements lockedRoom {
     }
 
     public void checkKey() {
-        //if inInventory is false for key, System.out.println("The room is locked. Maybe you need a key first."
+        //if in inventory is false for key, System.out.println("The room is locked. Maybe you need a key first."
 
     }
 
