@@ -8,8 +8,9 @@ public class Exit extends Room implements lockedRoom {
         super(x, y);
     }
 
-    public void checkKey() {
-        //if in inventory is false for key, System.out.println("The room is locked. Maybe you need a key first."
+    public boolean checkKey() {
+        //if player1's inventory containes key, return true
+        return false;
 
     }
 

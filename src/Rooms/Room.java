@@ -1,11 +1,9 @@
 package Rooms;
 
-import Game.Runner;
 import Items.GranolaBar;
 import Items.Ramen;
 import Person.Player;
 import Items.Item;
-import Items.Bag;
 
 public class Room {
 
@@ -39,11 +37,11 @@ public class Room {
         if (item != null) {
             if (item instanceof GranolaBar) {
                 System.out.println("You find a granola bar.");
-                //add granola bar to bag inventory
+                player1.addToBag(item);
 
             } else if (item instanceof Ramen) {
                 System.out.println("You found a package of ramen.");
-                //add ramen to bag inventory
+                player1.addToBag(item);
             }
         }
 
@@ -76,6 +74,12 @@ public class Room {
         }
     }
 
-    private static String [] randomLookResponse = {"There is a lamp on the bedside drawer. When you try turning it on, it doesn't seem to work.", "The wallpaper is peeling in some areas.", "The room feels unnaturally cold.", "The lights above the bed flicker on and off.", "The room smells mildewy. You wonder how long it's been since someone stayed here."};
+    private static String [] randomLookResponse = {
+            "There is a lamp on the bedside drawer. When you try turning it on, it doesn't seem to work.",
+            "The wallpaper is peeling in some areas.",
+            "The room feels unnaturally cold.",
+            "The lights above the bed flicker on and off.",
+            "The room smells mildewy. You wonder how long it's been since someone stayed here."
+    };
 
 }
