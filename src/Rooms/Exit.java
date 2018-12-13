@@ -8,9 +8,10 @@ public class Exit extends Room implements lockedRoom {
         super(x, y);
     }
 
-    public boolean checkKey() {
-        //if player1's inventory containes key, return true
-        return false;
+    public void checkKey() {
+        //if player1's inventory containes key, end game
+        //else print "The door is locked. You can't escape just yet!"
+
 
     }
 
