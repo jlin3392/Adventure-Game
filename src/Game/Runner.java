@@ -53,10 +53,11 @@ public class Runner {
         Player player1 = new Player("FirstName", "FamilyName", 0,0);
         building[0][0].enterRoom(player1);
         Scanner in = new Scanner(System.in);
+        map.print();
 
         while(gameOn)
         {
-            map.print();
+            //map
             System.out.println("What would you like to do? Type 'help' for more information.");
             String statement = in.nextLine();
 
@@ -64,11 +65,14 @@ public class Runner {
                 System.out.println("In each room, you can move, look around, and get items. \n" +
                                    "You can move by choosing a direction (N, S, E, W). \n" +
                                    "You can look at your surroundings by typing 'look'. \n" +
-                                   "You can use items by typing 'use' and the name of the item.");
+                                   "You can look at your inventory by typing 'bag'.");
             } else if (validMove(statement, player1, building)) {
                 System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
+                map.print();
             } else if (statement.toLowerCase().equals("look")) {
-                //Room(player1.getxLoc(),player1.getyLoc().lookAround());
+                building[player1.getxLoc()][player1.getyLoc()].lookAround();
+            } else if (statement.toLowerCase().equals("bag")) {
+                player1.checkBag();
             } else {
                 System.out.println("Please choose a valid move.");
             }

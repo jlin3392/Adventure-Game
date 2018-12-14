@@ -55,18 +55,31 @@ public class Player {
     }
 
     public void addToBag(Item item) {
-        for (int i = 0; i <= 10; i++) {
-            if (inventory[i] != null) {
-                inventory[i] = item;
+
+        if (bagSpace() == 11) {
+            System.out.println("Your bag is full!");
+        } else {
+            inventory[bagSpace()] = item;
+        }
+
+    }
+
+    public int bagSpace() {
+        for (int i = 0; i < 10; i++) {
+            if (inventory[i] == null) {
+                return i;
             }
         }
+
+        return 11;
     }
 
     public void checkBag() {
 
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i < inventory.length; i++) {
             if (inventory[i] != null) {
                 totalInventory = totalInventory + inventory[i].toString() + " ";
+                System.out.println(totalInventory);
             }
         }
 

@@ -36,7 +36,7 @@ public class Room {
 
         if (item != null) {
             if (item instanceof GranolaBar) {
-                System.out.println("You find a granola bar.");
+                System.out.println("You found a granola bar.");
                 player1.addToBag(item);
 
             } else if (item instanceof Ramen) {
