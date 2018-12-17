@@ -41,10 +41,15 @@ public class Runner {
                            "last floor, but where could the exit possibly be?     \n" +
                            "\n");
 
-        //Create a random winning room.
+        //Create a random key room.
         int x = (int)(Math.random()*building.length);
         int y = (int)(Math.random()*building.length);
         building[x][y] = new KeyRoom(x, y);
+
+        //Create a random exit.
+        int a = (int)(Math.random()*building.length);
+        int b = (int)(Math.random()*building.length);
+        building[a][b] = new Exit(a, b);
 
 
         Board map = new Board(building);

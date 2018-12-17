@@ -2,6 +2,7 @@ package Person;
 
 import Items.Consumable;
 import Items.Item;
+import Items.Key;
 
 /**
  * Person represents the player as they move through the game.
@@ -15,7 +16,7 @@ public class Player {
     int strength = 10;
 
     private Item[] inventory = new Item[10];
-    String totalInventory;
+    String totalInventory = "";
 
 
     public int getxLoc() {
@@ -76,18 +77,32 @@ public class Player {
 
     public void checkBag() {
 
+        boolean bagEmpty = false;
+
         for (int i = 0; i < inventory.length; i++) {
-            if (inventory[i] != null) {
+            if (inventory[0] == null) {
+                bagEmpty = true;
+            } else if (inventory[i] != null) {
                 totalInventory = totalInventory + inventory[i].toString() + " ";
-                System.out.println(totalInventory);
             }
         }
 
-        if (totalInventory.length() < 1) {
+        if (bagEmpty == true) {
             System.out.println("Your bag is empty.");
         } else {
             System.out.println("Your bag currently has: " + totalInventory);
         }
+    }
+
+    public boolean hasKey() {
+
+        for (int i = 0; i < inventory.length; i++) {
+            if (inventory[i] instanceof Key) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }

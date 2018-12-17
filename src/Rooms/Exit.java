@@ -1,5 +1,6 @@
 package Rooms;
 
+import Items.Key;
 import Person.Player;
 
 public class Exit extends Room implements lockedRoom {
@@ -8,11 +9,14 @@ public class Exit extends Room implements lockedRoom {
         super(x, y);
     }
 
+//FIX EXIT CODE
     public void checkKey() {
-        //if player1's inventory contains key, end game
-        //else print "The door is locked. You can't escape just yet!"
-
-
+        if (player1.hasKey() == true) {
+            System.out.println("You unlocked the exit and managed to escape!");
+            Game.Runner.gameOff();
+        } else {
+            System.out.println("It doesn't seem like you have a key. The exit remains locked.");
+        }
     }
 
     @Override
