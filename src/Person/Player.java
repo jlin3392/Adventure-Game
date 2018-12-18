@@ -1,6 +1,8 @@
 package Person;
 
 import Items.Consumable;
+import Items.GranolaBar;
+import Items.Ramen;
 import Items.Item;
 import Items.Key;
 
@@ -14,6 +16,7 @@ public class Player {
 
     int healthPoints = 10;
     int strength = 10;
+    int itemPlace = 0;
 
     private Item[] inventory = new Item[10];
     String totalInventory = "";
@@ -80,22 +83,64 @@ public class Player {
 
     public void checkBag() {
 
-        boolean bagEmpty = false;
+        totalInventory = "";
 
         for (int i = 0; i < inventory.length; i++) {
-            if (inventory[0] == null) {
-                bagEmpty = true;
-            } else if (inventory[i] != null) {
-                totalInventory = totalInventory + inventory[i].toString() + " ";
+           if (inventory[i] != null) {
+                totalInventory = totalInventory + " " + inventory[i].toString() + " ";
             }
         }
 
-        if (bagEmpty == true) {
+
+        if (bagEmpty() == true) {
             System.out.println("Your bag is empty.");
         } else {
             System.out.println("Your bag currently has: " + totalInventory);
         }
     }
+
+    public boolean bagEmpty() {
+
+        for (int i = 0; i < inventory.length; i++) {
+            if (inventory[i] != null) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public boolean hasConsumable() {
+        for (int i = 0; i < inventory.length; i++)  {
+            if (inventory[i] instanceof Consumable) {
+                itemPlace = i;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void removeItem() {
+        if (hasConsumable()) {
+            inventory[itemPlace] = null;
+        }
+    }
+
+    public void eatConsumable() {
+
+        if (hasConsumable()) {
+
+            if (inventory[itemPlace] instanceof GranolaBar) {
+                GranolaBar g1 = new GranolaBar();
+                g1.eat(this);
+            } else if (inventory[itemPlace] instanceof Ramen) {
+                Ramen r1 = new Ramen();
+                r1.eat(this);
+            }
+        }
+    }
+
 
     public boolean hasKey() {
 

@@ -123,7 +123,8 @@ public class Runner {
                 System.out.println("In each room, you can move, look around, and get items. \n" +
                         "You can move by choosing a direction (N, S, E, W). \n" +
                         "You can look at your surroundings by typing 'look'. \n" +
-                        "You can look at your inventory by typing 'bag'.");
+                        "You can look at your inventory by typing 'bag'. \n" +
+                        "You can eat a consumable in your bag if you have one by typing 'eat'.");
             } else if (validMove(statement, player1, building)) {
                 System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
                 map.print();
@@ -131,6 +132,8 @@ public class Runner {
                 building[player1.getxLoc()][player1.getyLoc()].lookAround();
             } else if (statement.toLowerCase().equals("bag")) {
                 player1.checkBag();
+            } else if (statement.toLowerCase().equals("eat")) {
+                player1.eatConsumable();
             } else if (building[player1.getxLoc()][player1.getyLoc()] instanceof Exit && statement.toLowerCase().equals("y")) {
                 if (player1.hasKey()) {
                     System.out.println("The door opens with a satisfying click. You're free!");
