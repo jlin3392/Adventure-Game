@@ -31,6 +31,7 @@ public class Room {
         }
     }
 
+
     public void lookAround() {
         System.out.println((randomLookResponse[(int) ((Math.random() * 4 + 1))]));
 

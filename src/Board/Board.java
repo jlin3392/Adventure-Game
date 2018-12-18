@@ -11,6 +11,15 @@ public class Board {
         this.board = board;
     }
 
+    /**
+    public Board(width, height) {
+        width = this.width;
+        height = this.height;
+    }
+    **/
+
+
+
     public void print() {
         String row = "";
         for (int i = 0; i < board.length; i++) {

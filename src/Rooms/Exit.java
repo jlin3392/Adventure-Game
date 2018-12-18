@@ -1,28 +1,38 @@
 package Rooms;
 
-import Items.Key;
 import Person.Player;
 
-public class Exit extends Room implements lockedRoom {
+public class Exit extends Room {
 
     public Exit (int x, int y) {
         super(x, y);
     }
 
-//FIX EXIT CODE
-    public void checkKey() {
-        if (player1.hasKey() == true) {
-            System.out.println("You unlocked the exit and managed to escape!");
-            Game.Runner.gameOff();
-        } else {
-            System.out.println("It doesn't seem like you have a key. The exit remains locked.");
-        }
+
+    @Override
+    public void lookAround() {
+        System.out.println( "A heavy padlock is on the door. When you try pulling the handle," +
+                            "the door barely budges.");
     }
 
     @Override
     public void enterRoom (Player player1)
     {
-        System.out.println("You reached what appears to be the exit. A heavy padlock is on the door.");
+        System.out.println(
+                "                ooooo                        ooooo               \n" +
+                "               [     ]                      [     ]              \n" +
+                "              [_______]                    [_______]             \n" +
+                "               |     |  ,----------------,  |     |              \n" +
+                "               |     |/'    ____..____    ',|     |              \n" +
+                "               |     |    /'    ||    ',    |     |             \n" +
+                "               |     |   |o     ||     o|   |     |            \n" +
+                "               |  _  |   |     _||_     |   |  _  |            \n" +
+                "               | (_) |   |    (_||_)    |   | (_) |            \n" +
+                "               |     |   |     (||)     |   |     |            \n" +
+                "               |     |   |      ||      |   |     |            \n" +
+                "               |     |   |o     ||     o|   |     |            \n" +
+                "              [_______]--'------''------'--[_______]             ");
+        System.out.println("You reached what appears to be the exit. Would you like to try unlocking it? [Y/N]");
         player1.setxLoc(this.xLoc);
         player1.setyLoc(this.yLoc);
 

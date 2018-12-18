@@ -35,10 +35,13 @@ public class Player {
         this.yLoc = yLoc;
     }
 
-    public Player (String firstName, String familyName, int xLoc, int yLoc)
+    public int getHealthPoints() {
+        return healthPoints;
+    }
+
+    public Player (String firstName, int xLoc, int yLoc)
     {
         this.firstName = firstName;
-        this.familyName = familyName;
         this.xLoc = xLoc;
         this.yLoc = yLoc;
     }
