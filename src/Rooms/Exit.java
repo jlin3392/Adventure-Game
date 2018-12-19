@@ -16,7 +16,7 @@ public class Exit extends Room {
     }
 
     @Override
-    public void enterRoom (Player player1)
+    public void enterRoom (Player x)
     {
         System.out.println(
                 "                ooooo                        ooooo               \n" +
@@ -33,6 +33,7 @@ public class Exit extends Room {
                 "               |     |   |o     ||     o|   |     |            \n" +
                 "              [_______]--'------''------'--[_______]             ");
         System.out.println("You reached what appears to be the exit. Would you like to try unlocking it? [Y/N]");
+        player1 = x;
         player1.setxLoc(this.xLoc);
         player1.setyLoc(this.yLoc);
 
@@ -45,6 +46,5 @@ public class Exit extends Room {
         } else {
             return("[E]");
         }
-
     }
 }

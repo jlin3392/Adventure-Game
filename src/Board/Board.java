@@ -5,6 +5,7 @@ import Rooms.BossRoom;
 import Rooms.Exit;
 import Rooms.KeyRoom;
 import Rooms.Room;
+import Person.Player;
 
 public class Board {
 
@@ -18,7 +19,6 @@ public class Board {
 
         Room[][]building = board;
 
-        System.out.println(board.length);
         //Fill the building with normal rooms
         for (int x = 0; x < building.length; x++)
         {
@@ -55,10 +55,11 @@ public class Board {
 
 
     public Board(int width, int height) {
-        width = this.width;
-        height = this.height;
+        this.width = width;
+        this.height = height;
 
         Room[][] building = new Room[width][height];
+        board = building;
 
         //Fill the building with normal rooms
         for (int x = 0; x < building.length; x++)
@@ -95,7 +96,13 @@ public class Board {
 
 
 
+    public void enterRoom(Player player1, int x, int y) {
+        this.board[x][y].enterRoom(player1);
+    }
 
+    public Room[][] getBuilding() {
+        return board;
+    }
 
     public void print() {
         String row = "";

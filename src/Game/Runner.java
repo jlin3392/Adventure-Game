@@ -28,7 +28,7 @@ public class Runner {
                            "or a custom map? Type 'D' for default and 'C' for custom.");
         String statement = in.nextLine();
 
-        Room[][] building = new Room[1][1];
+        Room[][] building = new Room[5][5];
         Board map = new Board(building);
 
 
@@ -36,7 +36,6 @@ public class Runner {
 
             building = new Room[5][5];
             map = new Board(building);
-            building[0][0].enterRoom(player1);
 
         } else if (statement.toLowerCase().equals("c")) {
 
@@ -47,7 +46,7 @@ public class Runner {
 
 
             map = new Board(width, height);
-            building[0][0].enterRoom(player1);
+            //building[0][0].enterRoom(player1);
 
         } else {
             System.out.println("Please enter a valid response.");
@@ -75,6 +74,7 @@ public class Runner {
 
         //Setup player 1 and the input scanner
 
+        map.enterRoom(player1,0,0);
         map.print();
 
         while(gameOn) {
@@ -95,7 +95,7 @@ public class Runner {
                         "You can look at your surroundings by typing 'look'. \n" +
                         "You can look at your inventory by typing 'bag'. \n" +
                         "You can eat a consumable in your bag if you have one by typing 'eat'.");
-            } else if (validMove(statement, player1, building)) {
+            } else if (validMove(statement, player1, map.getBuilding())) {
                 System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
                 map.print();
             } else if (statement.toLowerCase().equals("look")) {
