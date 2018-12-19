@@ -16,8 +16,9 @@ public class Board {
     public Board(Room[][] board) {
         this.board = board;
 
-        Room[][] building = new Room[5][5];
+        Room[][]building = board;
 
+        System.out.println(board.length);
         //Fill the building with normal rooms
         for (int x = 0; x < building.length; x++)
         {

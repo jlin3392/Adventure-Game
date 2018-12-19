@@ -24,27 +24,29 @@ public class Runner {
 
 
 
-        System.out.println("Hello, " + firstName +". Would you like to play the default map" +
+        System.out.println("Hello, " + firstName +". Would you like to play the default map\n" +
                            "or a custom map? Type 'D' for default and 'C' for custom.");
         String statement = in.nextLine();
 
+        Room[][] building = new Room[1][1];
+        Board map = new Board(building);
 
 
-        if (statement.toLowerCase().equals("D")) {
+        if (statement.toLowerCase().equals("d")) {
 
-            Room[][] building = new Room[5][5];
-            Board map = new Board(building);
+            building = new Room[5][5];
+            map = new Board(building);
             building[0][0].enterRoom(player1);
 
-        } else if (statement.toLowerCase().equals("C")) {
+        } else if (statement.toLowerCase().equals("c")) {
 
             System.out.println("Enter the width of your custom map.");
             int width = Integer.parseInt(in.nextLine());
             System.out.println("Enter the height of your custom map.");
             int height = Integer.parseInt(in.nextLine());
 
-            Room[][] building = new Room[width][height];
-            Board map = new Board(building);
+
+            map = new Board(width, height);
             building[0][0].enterRoom(player1);
 
         } else {
