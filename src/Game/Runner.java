@@ -15,7 +15,7 @@ public class Runner {
 
     public static void main(String[] args)
     {
-/*
+
         //Setup player 1 and input scanner
         Scanner in = new Scanner(System.in);
         System.out.println("Hello, what is your name?");
@@ -32,32 +32,24 @@ public class Runner {
 
         if (statement.toLowerCase().equals("D")) {
 
+            Room[][] building = new Room[5][5];
+            Board map = new Board(building);
+            building[0][0].enterRoom(player1);
+
         } else if (statement.toLowerCase().equals("C")) {
+
             System.out.println("Enter the width of your custom map.");
             int width = Integer.parseInt(in.nextLine());
             System.out.println("Enter the height of your custom map.");
             int height = Integer.parseInt(in.nextLine());
 
-
+            Room[][] building = new Room[width][height];
+            Board map = new Board(building);
+            building[0][0].enterRoom(player1);
 
         } else {
             System.out.println("Please enter a valid response.");
         }
-
-*/
-        Room[][] building = new Room[5][5];
-
-
-
-        //Fill the building with normal rooms
-        for (int x = 0; x < building.length; x++)
-        {
-            for (int y = 0; y < building[x].length; y++)
-            {
-                building[x][y] = new Room(x,y);
-            }
-        }
-
 
         /*
             Introduction to the game with the opening scene.
@@ -72,42 +64,15 @@ public class Runner {
                 "                               .__|]_[]_'-...... \n" +
                 "                                \\ o o o '=-=-=-!\n" +
                 "\"'\"''\"\"'\"\"\"''''\"'\"''\"\"'''~~~~~~~~\\_____________|~~~~MC~~~~");
-        System.out.println("Welcome aboard the Black Whale, " + "" + ".\n" +
+        System.out.println("Welcome aboard the Black Whale, " + firstName + ".\n" +
                             "This cruise ship used to be famous for its extravagance, \n" +
                             "but in recent years it has become known for its maze-like \n" +
                             "rooms. You managed to find your way to the last floor, but \n" +
                             "will you be able to escape?");
 
-        //Create a random key room.
-        int x = (int)(Math.random()*building.length);
-        int y = (int)(Math.random()*building.length);
-        building[x][y] = new KeyRoom(x, y);
-
-        //Create a random exit.
-        int a = (int)(Math.random()*building.length);
-        int b = (int)(Math.random()*building.length);
-        while (building[a][b] instanceof KeyRoom) {
-            a = (int)(Math.random()*building.length);
-            b = (int)(Math.random()*building.length);
-        }
-        building[a][b] = new Exit(a, b);
-
-        //Create a random boss room.
-        int n = (int)(Math.random()*building.length);
-        int m = (int)(Math.random()*building.length);
-        while (building[n][m] instanceof KeyRoom || building[n][m] instanceof Exit) {
-            n = (int)(Math.random()*building.length);
-            m = (int)(Math.random()*building.length);
-        }
-        building[n][m] = new BossRoom(n, m);
-
-
-        Board map = new Board(building);
 
         //Setup player 1 and the input scanner
-        Player player1 = new Player("FirstName", 0,0);
-        building[0][0].enterRoom(player1);
-        Scanner in = new Scanner(System.in);
+
         map.print();
 
         while(gameOn) {
@@ -118,7 +83,7 @@ public class Runner {
             }
 
             System.out.println("What would you like to do? Type 'help' for more information.");
-            String statement = in.nextLine();
+            statement = in.nextLine();
 
 
              //Help function offers options to the user.
