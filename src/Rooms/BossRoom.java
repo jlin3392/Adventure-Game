@@ -42,8 +42,14 @@ public class BossRoom extends Room {
         while (statement.toLowerCase().equals("y")) {
             g1.fightGriffin(player1);
 
-            System.out.println("Do you still want to fight the griffin? [Y/N]");
-            statement = in.nextLine();
+            if (g1.getHealthPoints() == 0) {
+                System.out.println("There is nothing else to do in this room.");
+            } else if (g1.befriended()) {
+                System.out.println("You can't fight the griffin!");
+            } else {
+                System.out.println("Do you still want to fight the griffin? [Y/N]");
+                statement = in.nextLine();
+            }
         }
 
         if (statement.toLowerCase().equals("n")) {

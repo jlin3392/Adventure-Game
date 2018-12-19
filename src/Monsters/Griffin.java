@@ -18,7 +18,13 @@ public class Griffin {
         if (scenario == 1) {
             System.out.println("The griffin attacks you! You lose 4 health points.");
             player1.loseHealth(4);
-            System.out.println("Your health is now "+ player1.getHealthPoints());
+
+            if (player1.getHealthPoints() <= 0) {
+                System.out.println("The griffin killed you. Game over!");
+                System.exit(0);
+            }
+
+            System.out.println("Your HP: "+ player1.getHealthPoints());
         } else if (scenario == 2) {
             System.out.println("You attack the griffin. It screeches in pain when you hit a critical spot.");
             griffinHealthPoints = griffinHealthPoints - 5;
@@ -35,7 +41,18 @@ public class Griffin {
 
         if (griffinHealthPoints == 0) {
             System.out.println("The griffin dies. You feel a strange hollowness in your chest at its death.");
-            System.out.println("There is nothing else in the room.");
         }
+    }
+
+    public int getHealthPoints() {
+        return griffinHealthPoints;
+    }
+
+    public boolean befriended() {
+        if (scenario == 4) {
+            return true;
+        }
+
+        return false;
     }
 }

@@ -129,6 +129,10 @@ public class Player {
 
     public void eatConsumable() {
 
+        if (!hasConsumable()) {
+            System.out.println("There's nothing edible in your bag!");
+        }
+
         if (hasConsumable()) {
 
             if (inventory[itemPlace] instanceof GranolaBar) {
