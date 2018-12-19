@@ -15,15 +15,15 @@ public class Runner {
 
     public static void main(String[] args)
     {
-/**
+/*
         //Setup player 1 and input scanner
         Scanner in = new Scanner(System.in);
         System.out.println("Hello, what is your name?");
         String firstName = in.nextLine();
         Player player1 = new Player(firstName, 0, 0);
- **/
 
-        /**
+
+
         System.out.println("Hello, " + firstName +". Would you like to play the default map" +
                            "or a custom map? Type 'D' for default and 'C' for custom.");
         String statement = in.nextLine();
@@ -31,19 +31,20 @@ public class Runner {
 
 
         if (statement.toLowerCase().equals("D")) {
-            width = 5;
-            height = 5;
+
         } else if (statement.toLowerCase().equals("C")) {
             System.out.println("Enter the width of your custom map.");
-            width = Integer.parseInt(in.nextLine());
+            int width = Integer.parseInt(in.nextLine());
             System.out.println("Enter the height of your custom map.");
-            height = Integer.parseInt(in.nextLine());
+            int height = Integer.parseInt(in.nextLine());
+
+
 
         } else {
             System.out.println("Please enter a valid response.");
         }
-        **/
 
+*/
         Room[][] building = new Room[5][5];
 
 
@@ -56,6 +57,7 @@ public class Runner {
                 building[x][y] = new Room(x,y);
             }
         }
+
 
         /*
             Introduction to the game with the opening scene.
@@ -70,7 +72,7 @@ public class Runner {
                 "                               .__|]_[]_'-...... \n" +
                 "                                \\ o o o '=-=-=-!\n" +
                 "\"'\"''\"\"'\"\"\"''''\"'\"''\"\"'''~~~~~~~~\\_____________|~~~~MC~~~~");
-        System.out.println("Welcome aboard the Black Whale, " + " " + ".\n" +
+        System.out.println("Welcome aboard the Black Whale, " + "" + ".\n" +
                             "This cruise ship used to be famous for its extravagance, \n" +
                             "but in recent years it has become known for its maze-like \n" +
                             "rooms. You managed to find your way to the last floor, but \n" +
@@ -98,6 +100,7 @@ public class Runner {
             m = (int)(Math.random()*building.length);
         }
         building[n][m] = new BossRoom(n, m);
+
 
         Board map = new Board(building);
 
