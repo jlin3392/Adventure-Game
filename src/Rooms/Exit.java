@@ -9,9 +9,12 @@ public class Exit extends Room {
     }
 
 
+    /**
+     * Special look option for this room.
+     */
     @Override
     public void lookAround() {
-        System.out.println( "A heavy padlock is on the door. When you try pulling the handle," +
+        System.out.println( "A heavy padlock is on the door. When you try pulling the handle,\n" +
                             "the door barely budges.");
     }
 
@@ -19,6 +22,7 @@ public class Exit extends Room {
     public void enterRoom (Player x)
     {
         System.out.println(
+                //ASCII ART CREDIT: https://www.asciiart.eu/buildings-and-places/castles
                 "                ooooo                        ooooo               \n" +
                 "               [     ]                      [     ]              \n" +
                 "              [_______]                    [_______]             \n" +
@@ -39,6 +43,10 @@ public class Exit extends Room {
 
     }
 
+    /**
+     * Indicates which room is the exit
+     * @returns [P] if player is in the room, [E] if they are not
+     */
     @Override
     public String toString() {
         if (player1!=null) {

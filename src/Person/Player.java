@@ -11,11 +11,9 @@ import Items.Key;
  */
 public class Player {
     String firstName;
-    String familyName;
     int xLoc, yLoc;
 
     int healthPoints = 10;
-    int strength = 10;
     int itemPlace = 0;
 
     private Item[] inventory = new Item[10];
@@ -49,18 +47,26 @@ public class Player {
         this.yLoc = yLoc;
     }
 
+    /**
+     * Restores HP by amount.
+     * @param amount
+     */
     public void restoreHealth(int amount) {
         healthPoints = healthPoints + amount;
     }
 
+    /**
+     * Loses HP by amount.
+     * @param amount
+     */
     public void loseHealth(int amount) {
         healthPoints = healthPoints - amount;
     }
 
-    public void gainStrength(int amount) {
-        strength = strength + amount;
-    }
-
+    /**
+     * Adds item to bag and sets limit on number of items allowed
+     * @param item
+     */
     public void addToBag(Item item) {
 
         if (bagSpace() == 11) {
@@ -77,10 +83,12 @@ public class Player {
                 return i;
             }
         }
-
         return 11;
     }
 
+    /**
+     * Allows user to check bag contents and prints them
+     */
     public void checkBag() {
 
         totalInventory = "";
@@ -99,6 +107,10 @@ public class Player {
         }
     }
 
+    /**
+     * Checks if bag is empty
+     * @returns true if bag is empty and false if it isn't
+     */
     public boolean bagEmpty() {
 
         for (int i = 0; i < inventory.length; i++) {
@@ -106,10 +118,13 @@ public class Player {
                 return false;
             }
         }
-
         return true;
     }
 
+    /**
+     * Checks if bag has a consumable
+     * @returns true if bag has consumable and false if it doesn't
+     */
     public boolean hasConsumable() {
         for (int i = 0; i < inventory.length; i++)  {
             if (inventory[i] instanceof Consumable) {
@@ -117,16 +132,19 @@ public class Player {
                 return true;
             }
         }
-
         return false;
     }
 
+    /**
+     * Removes item from bag
+     */
     public void removeItem() {
-        if (hasConsumable()) {
             inventory[itemPlace] = null;
-        }
     }
 
+    /**
+     * Eats edible items
+     */
     public void eatConsumable() {
 
         if (!hasConsumable()) {
@@ -135,17 +153,26 @@ public class Player {
 
         if (hasConsumable()) {
 
+            //Creates new GranolaBar that is eaten and deletes the GranolaBar inside the bag
             if (inventory[itemPlace] instanceof GranolaBar) {
                 GranolaBar g1 = new GranolaBar();
                 g1.eat(this);
+                removeItem();
+
+            //Creates new Ramen that is eaten and deletes the Ramen inside the bag
             } else if (inventory[itemPlace] instanceof Ramen) {
                 Ramen r1 = new Ramen();
                 r1.eat(this);
+                removeItem();
             }
         }
     }
 
 
+    /**
+     * Checks if player's inventory has Key.
+     * @returns true if it does and false if it does not
+     */
     public boolean hasKey() {
 
         for (int i = 0; i < inventory.length; i++) {
@@ -153,7 +180,6 @@ public class Player {
                 return true;
             }
         }
-
         return false;
     }
 

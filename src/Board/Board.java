@@ -11,9 +11,13 @@ public class Board {
 
     int width = 0;
     int height = 0;
-
     private Room[][] board;
 
+    /**
+     * Constructor for default board.
+     * Creates KeyRoom, Exit, and BossRoom
+     * @param board
+     */
     public Board(Room[][] board) {
         this.board = board;
 
@@ -53,7 +57,12 @@ public class Board {
 
     }
 
-
+    /**
+     * Constructor for specialized board.
+     * Sets height and width to create a square board and creates necessary rooms.
+     * @param width
+     * @param height
+     */
     public Board(int width, int height) {
         this.width = width;
         this.height = height;
@@ -95,7 +104,12 @@ public class Board {
     }
 
 
-
+    /**
+     * Allows player to enter a room at that location.
+     * @param player1
+     * @param x
+     * @param y
+     */
     public void enterRoom(Player player1, int x, int y) {
         this.board[x][y].enterRoom(player1);
     }
@@ -104,6 +118,9 @@ public class Board {
         return board;
     }
 
+    /**
+     * Prints board to console.
+     */
     public void print() {
         String row = "";
         for (int i = 0; i < board.length; i++) {

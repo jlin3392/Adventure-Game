@@ -12,10 +12,14 @@ public class KeyRoom extends Room {
         super (x, y);
     }
 
+
     @Override
     public void enterRoom (Player x)
     {
-        System.out.println("                         ____\n" +
+
+        System.out.println(
+                //ASCII ART CREDIT: https://www.asciiart.eu/buildings-and-places/furniture/sofas
+                "                         ____\n" +
                 "                        /    \\\n" +
                 "                       /______\\\n" +
                 "                          ||\n" +
@@ -23,7 +27,7 @@ public class KeyRoom extends Room {
                 "          /~ () ()  ~\\    ||   /~ ()  ()  () ()  ~\\\n" +
                 "         (_)========(_)   ||  (_)==== ===========(_)\n" +
                 "          I|_________|I  _||_  |___________________|\n" +
-                ".////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
+                ".//////////////////////////////////////////////////////");
         System.out.println("You enter a luxury suite.");
         player1 = x;
         x.setxLoc(this.xLoc);
@@ -31,6 +35,10 @@ public class KeyRoom extends Room {
 
     }
 
+    /**
+     * Special look option for this room
+     * Allows user to pick up key from room if they "look"
+     */
     @Override
     public void lookAround() {
         System.out.println((randomLookResponse[(int) ((Math.random() * 4 + 1))]));
@@ -39,16 +47,23 @@ public class KeyRoom extends Room {
 
     }
 
+    /**
+     * Indicates which room is the key room
+     * @returns [P] if player is in the room, [K] if they are not
+     */
     @Override
     public String toString() {
 
         if (player1!=null) {
             return("[P]");
         } else {
-            return("[R]");
+            return("[K]");
         }
     }
 
+    /**
+     * Potential random responses
+     */
     private static String [] randomLookResponse = {
             "This room looks much newer than the others.",
             "You try the door to the bathroom in the suite, but it is tightly locked.",
